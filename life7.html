@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Life 7 – Growing Old Together 🤍</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:linear-gradient(135deg,#020617,#0f172a,#020617);
+  font-family:'Poppins',sans-serif;
+  color:#fff;
+}
+.card{
+  max-width:900px;
+  width:92%;
+  background:rgba(255,255,255,.06);
+  backdrop-filter:blur(20px);
+  border-radius:26px;
+  padding:45px 35px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:40px;
+  align-items:center;
+  box-shadow:0 40px 80px rgba(0,0,0,.6);
+}
+img{
+  width:100%;
+  border-radius:22px;
+  box-shadow:0 25px 60px rgba(0,0,0,.5);
+}
+h1{
+  font-family:'Playfair Display',serif;
+  font-size:34px;
+  margin-bottom:18px;
+}
+.quote{
+  font-size:18px;
+  line-height:1.8;
+  color:#e5e7eb;
+  padding-left:18px;
+  border-left:4px solid #facc15;
+}
+.buttons{
+  margin-top:35px;
+  display:flex;
+  gap:16px;
+}
+button{
+  padding:12px 34px;
+  border:none;
+  border-radius:30px;
+  background:#fff;
+  color:#020617;
+  font-weight:600;
+  cursor:pointer;
+}
+@media(max-width:800px){
+  .card{grid-template-columns:1fr;text-align:center}
+  .quote{border-left:none;border-top:3px solid #facc15;padding-top:15px}
+  .buttons{justify-content:center}
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+  <img src="images/photo49.png" alt="Growing Old Together">
+  
+  <div>
+    <h1>Forever, Even Then 🕊️</h1>
+    <div class="quote">
+      When our hair turns grey,and our steps grow slow, may our hands still find each other first. 🤍<br>
+      Let the world see us older,but let our hearts stay the same laughing at memories,
+      holding on through silence. 🌙<br>
+      Not because we have to,but because even at the end of time,
+    <span>we still choose each other.</span> ✨
+    </div>
+
+    <div class="buttons">
+      <button onclick="goBack()">⬅ Back</button>
+      <button onclick="goFuture()">Enter the Future ➜</button>
+    </div>
+  </div>
+</div>
+
+<script>
+function goBack(){
+  window.location.href = "life6.html";
+}
+function goFuture(){
+  window.location.href = "future.html";
+}
+</script>
+
+</body>
+</html>

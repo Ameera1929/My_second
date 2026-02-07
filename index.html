@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Small Surprise for You 💙</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+/* -------------------- General Body -------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  font-family: 'Poppins', sans-serif;
+  background: radial-gradient(circle at top, #1b3c59, #050d1a);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+/* MAIN HERO */
+.hero {
+  text-align: center;
+  max-width: 800px;
+}
+
+/* TITLE */
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.5rem;
+  margin-bottom: 20px;
+}
+
+.hero h1 span {
+  color: #f7c873;
+  font-size: 3.8rem;
+}
+
+/* QUOTE */
+.quote {
+  font-size: 1.2rem;
+  opacity: 0.85;
+  margin-bottom: 60px;
+}
+
+/* BUTTON CONTAINER */
+.actions {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+}
+
+/* CARD BUTTON */
+.card-btn {
+  width: 200px;
+  height: 220px;
+  border-radius: 25px;
+  border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(15px);
+  cursor: pointer;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  transition: all 0.4s ease;
+  box-shadow: 0 25px 50px rgba(0,0,0,0.4);
+}
+
+.card-btn i {
+  font-size: 3.2rem;
+}
+
+.card-btn span {
+  font-size: 1.3rem;
+  letter-spacing: 1px;
+}
+
+/* HELLO */
+.card-btn.open:hover {
+  transform: translateY(-15px) scale(1.05);
+  box-shadow: 0 35px 70px rgba(247,200,115,0.6);
+}
+
+/* BUTTERFLY */
+.card-btn.close:hover {
+  transform: translateY(-15px) scale(1.05);
+  box-shadow: 0 35px 70px rgba(120,180,255,0.5);
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+
+  <h1>
+    Small surprise<br>
+    <span>for you, mmullu 💙</span>
+  </h1>
+
+  <p class="quote">
+    “Every moment with you is a golden memory 💖”
+  </p>
+
+  <div class="actions">
+
+    <button class="card-btn open" id="helloBtn">
+      <i class="fa-solid fa-lock-open"></i>
+      <span>Hello</span>
+    </button>
+
+    <button class="card-btn close" id="butterflyBtn">
+      <i class="fa-solid fa-lock"></i>
+      <span>Butterfly</span>
+    </button>
+
+  </div>
+
+</div>
+<script>
+document.getElementById("helloBtn").onclick = () => {
+  window.location.href = "envelope.html";
+};
+document.getElementById("butterflyBtn").onclick = () => {
+  window.location.href = "password.html";
+
+};
+</script>
+
+</body>
+</html>

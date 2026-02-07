@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Special Gifts 🎁</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;
+  min-height:100vh;
+  background:radial-gradient(circle at top,#1e3a8a,#020617);
+  font-family:'Poppins',sans-serif;
+  color:#fff;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.container{
+  width:100%;
+  text-align:center;
+}
+
+/* gift box */
+.gift{
+  width:200px;
+  height:200px;
+  background:linear-gradient(145deg,#ef4444,#b91c1c);
+  border-radius:18px;
+  margin:30px auto;
+  position:relative;
+  box-shadow:0 30px 60px rgba(0,0,0,.6);
+}
+.gift::before{
+  content:"";
+  position:absolute;
+  top:85px;left:0;right:0;
+  height:18px;
+  background:white;
+}
+.gift::after{
+  content:"";
+  position:absolute;
+  top:0;bottom:0;
+  left:91px;
+  width:18px;
+  background:white;
+}
+
+/* image */
+.bouquet-img{
+  width:240px;
+  max-width:85%;
+  border-radius:18px;
+  animation:pop .5s ease;
+}
+@keyframes pop{
+  from{transform:scale(.5);opacity:0}
+  to{transform:scale(1);opacity:1}
+}
+
+.note{
+  margin-top:20px;
+  font-size:20px;
+  font-weight:500;
+}
+
+/* letter */
+.letter{
+  background:#ffffff;
+  color:#111827;
+  max-width:650px;
+  margin:20px auto;
+  padding:35px;
+  border-radius:16px;
+  box-shadow:0 25px 60px rgba(0,0,0,.5);
+  animation:fadeUp .6s ease;
+  line-height:1.7;
+  font-size:15px;
+  text-align:left;
+}
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(30px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+/* locked */
+.locked{
+  font-size:26px;
+  margin-top:15px;
+}
+
+/* tap text */
+.tap-text{
+  margin-top:18px;
+  font-size:14px;
+  opacity:.8;
+}
+
+/* bottom buttons */
+.bottom-buttons{
+  position:fixed;
+  bottom:20px;
+  left:50%;
+  transform:translateX(-50%);
+  display:flex;
+  gap:14px;
+}
+
+.bottom-buttons button{
+  padding:10px 28px;
+  background:rgba(255,255,255,.9);
+  color:#020617;
+  border:none;
+  border-radius:25px;
+  font-weight:600;
+  cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container" id="screen">
+  <div id="content">
+    <div class="gift"></div>
+  </div>
+  <div class="tap-text">🎁 Tap 3 times slowly</div>
+</div>
+
+<div class="bottom-buttons">
+  <button onclick="goBack()">⬅ Back</button>
+  <button onclick="goNext()">Go ➡</button>
+</div>
+
+<script>
+let step = 1;
+const content = document.getElementById("content");
+
+document.getElementById("screen").addEventListener("click", () => {
+
+  // FIRST TAP → IMAGE
+  if(step === 1){
+    content.innerHTML = `
+      <img src="images/photo41.png" class="bouquet-img">
+      <div class="note">Love you ma ❤️</div>
+    `;
+    step = 2;
+    return;
+  }
+
+  // SECOND TAP → LETTER
+  if(step === 2){
+    content.innerHTML = `
+      <div class="letter">
+        <h3>My Dearest Husband 💖</h3>
+        <p>
+        Today is your special day, and I just want to take a moment to tell you how much you mean to me. 🎂✨ From the day you came into my life, everything changed in the most beautiful way. 🌅<br>
+        You are not just my fiancé anymore, you are my soulmate, my best friend, and soon… my husband. 💍<br>
+        Every smile of yours brightens my darkest days. 😊 Every word you say stays in my heart forever. 💌<br>
+        When I am lost, your love guides me back. 🕯️ I can’t imagine my life without you, not even for a second.⏳Your hugs are my safest place. 🤗<br>
+        Your laughter is my favorite melody. 🎶 <br>I miss you more than words can ever express. 💔<br>
+        Even when we are apart, you are always in my thoughts. 💭the way you care, the way you love, the way you understand me without me saying a word… it amazes me every single day. 🌟<br>
+        You are my strength when I feel weak. 💪 you are my comfort when I feel scared. 🛋️I feel so lucky that soon I will be calling you my husband. ❤️ I dream about our future together—our home, our laughter, our adventures. 🏡🌍
+        Every moment with you feels like magic. ✨ You have shown me what true love really is. 💘 I love you more than words can ever capture. 📝<br>
+        I love you more than time, more than distance, more than anything in this world. 🌎You are my forever, my always, my everything. 🌹On this special day, I wish you happiness beyond measure. 🎉<br>
+        I wish your dreams come true, your heart stays light, and your days are filled with laughter. 😄<br>
+        Happy Birthday, my love! 🥰🎂 I can’t wait for the life we are about to build together. 🏠💑<br>
+        Love you mmulu 💖, miss you so much 😢, and always yours. 🖤
+        </p>
+      </div>
+    `;
+    step = 3;
+    return;
+  }
+
+  // THIRD TAP → LOCKED
+  if(step === 3){
+    content.innerHTML = `
+      <div class="gift"></div>
+      <div class="locked">🔒 Locked</div>
+    `;
+    step = 4;
+  }
+
+});
+
+function goBack(){
+  window.location.href = "cake.html";
+}
+function goNext(){
+  window.location.href = "album.html";
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>A Wish From My Heart 🎂</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:radial-gradient(circle at top,#1e293b,#020617);
+  font-family:'Inter',sans-serif;
+  color:#fff;
+  overflow:hidden;
+}
+
+/* floating lights */
+.light{
+  position:absolute;
+  width:8px;
+  height:8px;
+  background:#fde68a;
+  border-radius:50%;
+  opacity:.4;
+  animation:float 6s infinite ease-in-out;
+}
+
+@keyframes float{
+  0%{transform:translateY(0)}
+  50%{transform:translateY(-120px)}
+  100%{transform:translateY(0)}
+}
+
+/* container */
+.container{
+  text-align:center;
+  position:relative;
+  z-index:2;
+}
+
+/* cake */
+.cake{
+  width:320px;
+  margin:auto;
+  position:relative;
+  cursor:pointer;
+}
+
+.cake-img{
+  width:100%;
+  border-radius:22px;
+  box-shadow:0 35px 80px rgba(0,0,0,.65);
+  animation:glow 3s infinite alternate;
+}
+
+@keyframes glow{
+  from{box-shadow:0 35px 80px rgba(0,0,0,.6)}
+  to{box-shadow:0 35px 120px rgba(253,230,138,.25)}
+}
+
+/* text */
+.note{
+  margin-top:16px;
+  font-size:14px;
+  opacity:.85;
+}
+
+.quote{
+  margin-top:22px;
+  font-size:19px;
+  font-weight:500;
+  line-height:1.6;
+  display:none;
+  color:#fde68a;
+  animation:fadeUp 1.2s ease forwards;
+}
+
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(15px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+/* buttons */
+.buttons{
+  margin-top:26px;
+  display:none;
+  gap:18px;
+  justify-content:center;
+}
+
+button{
+  padding:12px 30px;
+  border-radius:28px;
+  border:1px solid rgba(255,255,255,.35);
+  background:rgba(255,255,255,.15);
+  color:#fff;
+  font-weight:500;
+  cursor:pointer;
+  backdrop-filter:blur(8px);
+  transition:.3s;
+}
+button:hover{
+  background:rgba(255,255,255,.28);
+}
+</style>
+</head>
+
+<body>
+
+<!-- floating lights -->
+<script>
+for(let i=0;i<25;i++){
+  const l=document.createElement("div");
+  l.className="light";
+  l.style.left=Math.random()*100+"%";
+  l.style.top=Math.random()*100+"%";
+  l.style.animationDelay=Math.random()*6+"s";
+  document.body.appendChild(l);
+}
+</script>
+
+<div class="container">
+
+  <div class="cake" onclick="revealWish()">
+    <img src="images/photo42.png" class="cake-img" alt="Birthday Cake">
+  </div>
+
+  <div class="note">Tap the cake… and make a silent wish 🤍</div>
+
+  <div class="quote" id="quote">
+    Some moments don’t need candles,  
+    just love, prayers, and a pure heart ✨
+  </div>
+
+  <div class="buttons" id="buttons">
+    <button onclick="goBack()">⬅ Back</button>
+    <button onclick="goGift()">🎁 Continue</button>
+  </div>
+
+</div>
+
+<script>
+function revealWish(){
+  document.getElementById("quote").style.display="block";
+  document.getElementById("buttons").style.display="flex";
+}
+
+function goGift(){location.href="gift.html";}
+function goBack(){location.href="envelope.html";}
+</script>
+
+</body>
+</html>

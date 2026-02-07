@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>A Warm Hug 🤍</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:radial-gradient(circle at top,#1e293b,#020617);
+  font-family:'Inter',sans-serif;
+  color:#ffffff;
+}
+
+/* main card */
+.card{
+  background:rgba(255,255,255,.05);
+  backdrop-filter:blur(14px);
+  border-radius:22px;
+  padding:40px 30px 80px;
+  width:90%;
+  max-width:420px;
+  text-align:center;
+  box-shadow:0 30px 60px rgba(0,0,0,.6);
+  position:relative;
+  animation:fadeIn .8s ease;
+}
+
+@keyframes fadeIn{
+  from{opacity:0;transform:translateY(30px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+/* hug image */
+.hug-image{
+  width:180px;
+  max-width:70%;
+  border-radius:20px;
+  box-shadow:0 15px 40px rgba(0,0,0,.5);
+  margin-bottom:26px;
+}
+
+/* text */
+.message-text{
+  font-size:18px;
+  line-height:1.6;
+  color:#fde68a;
+  font-weight:500;
+}
+
+/* floating hearts */
+.heart{
+  position:absolute;
+  font-size:18px;
+  opacity:.5;
+  animation:float 6s linear infinite;
+}
+@keyframes float{
+  from{transform:translateY(20px);opacity:0}
+  20%{opacity:.6}
+  to{transform:translateY(-120px);opacity:0}
+}
+
+/* bottom buttons */
+.actions{
+  position:absolute;
+  bottom:20px;
+  left:50%;
+  transform:translateX(-50%);
+  display:flex;
+  gap:14px;
+  width:85%;
+}
+
+.btn{
+  flex:1;
+  padding:12px 0;
+  border:none;
+  border-radius:30px;
+  font-size:14px;
+  font-weight:600;
+  cursor:pointer;
+  transition:.3s ease;
+}
+
+/* back */
+.back-btn{
+  background:rgba(255,255,255,.15);
+  color:#ffffff;
+  border:1px solid rgba(255,255,255,.25);
+}
+.back-btn:hover{background:rgba(255,255,255,.25)}
+
+/* home */
+.home-btn{
+  background:linear-gradient(135deg,#fde68a,#facc15);
+  color:#020617;
+  box-shadow:0 10px 30px rgba(250,204,21,.45);
+}
+.home-btn:hover{transform:scale(1.05)}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+  <!-- floating hearts -->
+  <div class="heart" style="left:15%;top:90%">🤍</div>
+  <div class="heart" style="left:50%;top:95%;animation-delay:2s">💫</div>
+  <div class="heart" style="left:75%;top:92%;animation-delay:4s">✨</div>
+
+  <img src="images/photo40.png" alt="Hug" class="hug-image">
+
+  <div class="message-text">
+    I just want to hold you close 🤗<br>
+    and say…<br>
+    <strong>Happy Birthday, my love 🎂🎉</strong>
+  </div>
+
+  <div class="actions">
+    <button class="btn back-btn" onclick="goBack()">⬅ Back</button>
+    <button class="btn home-btn" onclick="goHome()">🏠 Home</button>
+  </div>
+
+</div>
+
+<script>
+function goBack(){
+  window.location.href="secrete.html";
+}
+function goHome(){
+  window.location.href="index.html";
+}
+</script>
+
+</body>
+</html>

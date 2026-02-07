@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>A Letter From My Heart 💌</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:radial-gradient(circle at top,#1e293b,#020617);
+  font-family:'Inter',sans-serif;
+  color:#fff;
+  overflow:hidden;
+}
+
+/* floating particles */
+span.p{
+  position:absolute;
+  width:4px;
+  height:4px;
+  background:#ffffff55;
+  border-radius:50%;
+  animation:float 10s linear infinite;
+}
+@keyframes float{
+  from{transform:translateY(100vh);opacity:0}
+  20%{opacity:.6}
+  to{transform:translateY(-10vh);opacity:0}
+}
+
+/* main container */
+.container{
+  text-align:center;
+  position:relative;
+}
+
+/* envelope */
+.envelope{
+  width:420px;
+  height:280px;
+  background:linear-gradient(145deg,#bae6fd,#7dd3fc);
+  border-radius:16px;
+  position:relative;
+  box-shadow:0 35px 70px rgba(0,0,0,.55);
+  cursor:pointer;
+  overflow:hidden;
+}
+
+/* envelope flap */
+.flap{
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  height:50%;
+  background:linear-gradient(145deg,#7dd3fc,#38bdf8);
+  clip-path:polygon(0 0,100% 0,50% 100%);
+  transform-origin:top;
+  transition:1s ease;
+  z-index:3;
+}
+
+.envelope.open .flap{
+  transform:rotateX(160deg);
+}
+
+/* letter */
+.letter{
+  position:absolute;
+  left:20px;
+  right:20px;
+  bottom:-100%;
+  background:#f8fafc;
+  color:#020617;
+  border-radius:14px;
+  padding:28px;
+  line-height:1.8;
+  font-size:16px;
+  box-shadow:0 30px 50px rgba(0,0,0,.45);
+  transition:1.1s ease;
+  z-index:2;
+}
+
+.envelope.open .letter{
+  bottom:20px;
+  animation:rise .9s ease;
+}
+
+@keyframes rise{
+  from{transform:translateY(40px);opacity:0}
+  to{transform:translateY(0);opacity:1}
+}
+
+/* tap text */
+.tap-text{
+  margin-top:16px;
+  font-size:13px;
+  opacity:.8;
+}
+
+/* 3D heart */
+.heart-wrap{
+  position:fixed;
+  right:24px;
+  bottom:24px;
+  cursor:pointer;
+}
+
+.heart{
+  width:38px;
+  height:38px;
+  background:linear-gradient(145deg,#ff4d6d,#c9184a);
+  transform:rotate(-45deg);
+  position:relative;
+  box-shadow:0 14px 35px rgba(255,77,109,.65);
+  animation:beat 1.8s infinite;
+}
+
+.heart:before,
+.heart:after{
+  content:"";
+  width:38px;
+  height:38px;
+  background:linear-gradient(145deg,#ff758f,#c9184a);
+  border-radius:50%;
+  position:absolute;
+}
+.heart:before{top:-19px;left:0}
+.heart:after{left:19px;top:0}
+
+@keyframes beat{
+  0%{transform:rotate(-45deg) scale(1)}
+  50%{transform:rotate(-45deg) scale(1.15)}
+  100%{transform:rotate(-45deg) scale(1)}
+}
+
+/* back button */
+.back-btn{
+  position:fixed;
+  left:24px;
+  bottom:24px;
+  padding:10px 26px;
+  border-radius:26px;
+  border:1px solid rgba(255,255,255,.3);
+  background:rgba(255,255,255,.15);
+  color:#fff;
+  font-weight:500;
+  cursor:pointer;
+  backdrop-filter:blur(6px);
+}
+.back-btn:hover{
+  background:rgba(255,255,255,.25);
+}
+</style>
+</head>
+
+<body>
+
+<!-- particles -->
+<span class="p" style="left:10%;animation-delay:0s"></span>
+<span class="p" style="left:30%;animation-delay:2s"></span>
+<span class="p" style="left:60%;animation-delay:4s"></span>
+<span class="p" style="left:80%;animation-delay:6s"></span>
+
+<div class="container">
+  <div class="envelope" id="env" onclick="openLetter()">
+    <div class="flap"></div>
+    <div class="letter">
+      <strong>Happy Birthday 🎂</strong><br><br>
+      En Thangamey 🤍<br>
+      This letter is just a small piece  
+      of all the love I hold for you.<br><br>
+      No matter where life takes us,  
+      my heart will always choose you 💫
+    </div>
+  </div>
+  <div class="tap-text">Tap gently 💌</div>
+</div>
+
+<div class="heart-wrap" onclick="goCake()">
+  <div class="heart"></div>
+</div>
+
+<button class="back-btn" onclick="goIndex()">⬅ Back</button>
+
+<script>
+function openLetter(){
+  document.getElementById("env").classList.add("open");
+}
+function goCake(){
+  window.location.href="cake.html";
+}
+function goIndex(){
+  window.location.href="index.html";
+}
+</script>
+
+</body>
+</html>

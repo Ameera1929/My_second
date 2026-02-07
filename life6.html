@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Life 6 – Our Legacy 🌱</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:linear-gradient(135deg,#020617,#0f172a,#020617);
+  font-family:'Poppins',sans-serif;
+  color:#fff;
+}
+.card{
+  max-width:900px;
+  width:92%;
+  background:rgba(255,255,255,.06);
+  backdrop-filter:blur(20px);
+  border-radius:26px;
+  padding:45px 35px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:40px;
+  align-items:center;
+  box-shadow:0 40px 80px rgba(0,0,0,.6);
+}
+img{
+  width:100%;
+  border-radius:22px;
+  box-shadow:0 25px 60px rgba(0,0,0,.5);
+}
+h1{
+  font-family:'Playfair Display',serif;
+  font-size:34px;
+  margin-bottom:18px;
+}
+.quote{
+  font-size:18px;
+  line-height:1.8;
+  color:#e5e7eb;
+  padding-left:18px;
+  border-left:4px solid #facc15;
+}
+.buttons{
+  margin-top:35px;
+  display:flex;
+  gap:16px;
+}
+button{
+  padding:12px 34px;
+  border:none;
+  border-radius:30px;
+  background:#fff;
+  color:#020617;
+  font-weight:600;
+  cursor:pointer;
+}
+@media(max-width:800px){
+  .card{grid-template-columns:1fr;text-align:center}
+  .quote{border-left:none;border-top:3px solid #facc15;padding-top:15px}
+  .buttons{justify-content:center}
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+  <img src="images/photo48.png" alt="Legacy and Values">
+
+  <div>
+    <h1>Our Legacy 🌱</h1>
+    <div class="quote">
+      More than words,more than advice,our children should learn by watching us. 🤍<br>
+      The way we love,the way we respect,the way we stay together even on hard days<br>
+      <span>that becomes their lesson.</span> ✨<br>
+
+      Let them grow seeing us,not as perfect people,but as two souls who chose love,
+      patience, and togetherness — always. 🌙
+    </div>
+
+    <div class="buttons">
+      <button onclick="goBack()">⬅ Back</button>
+      <button onclick="goNext()">Next ➜</button>
+    </div>
+  </div>
+</div>
+
+<script>
+function goBack(){
+  window.location.href = "life5.html";
+}
+function goNext(){
+  window.location.href = "life7.html";
+}
+</script>
+
+</body>
+</html>
