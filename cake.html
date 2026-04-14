@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -42,55 +43,89 @@ body{
 .container{
   text-align:center;
   position:relative;
-  z-index:2;
 }
 
 /* cake */
 .cake{
-  width:320px;
-  margin:auto;
   position:relative;
-  cursor:pointer;
+  margin:auto;
 }
 
-.cake-img{
-  width:100%;
-  border-radius:22px;
-  box-shadow:0 35px 80px rgba(0,0,0,.65);
-  animation:glow 3s infinite alternate;
+/* layers */
+.layer{
+  height:60px;
+  border-radius:12px;
+  margin:auto;
+  opacity:0;
+  animation:drop 1s ease forwards;
 }
 
-@keyframes glow{
-  from{box-shadow:0 35px 80px rgba(0,0,0,.6)}
-  to{box-shadow:0 35px 120px rgba(253,230,138,.25)}
+.top{
+  width:140px;
+  background:#fda4af;
+  animation-delay:.3s;
+}
+.middle{
+  width:200px;
+  background:#fb7185;
+  animation-delay:.6s;
+}
+.bottom{
+  width:260px;
+  background:#f43f5e;
+  animation-delay:.9s;
 }
 
-/* text */
-.note{
-  margin-top:16px;
-  font-size:14px;
-  opacity:.85;
+@keyframes drop{
+  from{transform:translateY(-200px);opacity:0}
+  to{transform:translateY(0);opacity:1}
 }
 
-.quote{
-  margin-top:22px;
-  font-size:19px;
-  font-weight:500;
-  line-height:1.6;
+/* PERFECT CENTER CANDLES */
+.candles{
+  position:absolute;
+  top:-35px;
+  left:50%;
+  transform:translateX(-50%);
+  display:flex;
+  gap:12px;
+  justify-content:center;
+}
+
+.candle{
+  width:10px;
+  height:35px;
+  background:#fff;
+  position:relative;
+}
+
+/* flame */
+.candle::after{
+  content:"";
+  position:absolute;
+  top:-10px;
+  left:50%;
+  transform:translateX(-50%);
+  width:8px;
+  height:12px;
+  background:orange;
+  border-radius:50%;
+  animation:flicker .3s infinite alternate;
+}
+
+.candle.off::after{
   display:none;
-  color:#fde68a;
-  animation:fadeUp 1.2s ease forwards;
 }
 
-@keyframes fadeUp{
-  from{opacity:0;transform:translateY(15px)}
-  to{opacity:1;transform:translateY(0)}
+@keyframes flicker{
+  from{opacity:.6}
+  to{opacity:1}
 }
 
 /* buttons */
 .buttons{
   margin-top:26px;
-  display:none;
+  display:flex;
   gap:18px;
   justify-content:center;
 }
@@ -101,20 +136,40 @@ button{
   border:1px solid rgba(255,255,255,.35);
   background:rgba(255,255,255,.15);
   color:#fff;
-  font-weight:500;
   cursor:pointer;
-  backdrop-filter:blur(8px);
-  transition:.3s;
 }
-button:hover{
-  background:rgba(255,255,255,.28);
+
+/* input */
+#wishBox{
+  display:none;
+  margin-top:20px;
+}
+
+#wishInput{
+  padding:10px;
+  border-radius:20px;
+  border:none;
+  width:220px;
+}
+
+/* side popup */
+#popup{
+  display:none;
+  position:fixed;
+  right:30px;
+  top:50%;
+  transform:translateY(-50%);
+  background:#020617;
+  padding:20px 25px;
+  border-radius:14px;
+  box-shadow:0 10px 40px rgba(0,0,0,.6);
 }
 </style>
+
 </head>
 
 <body>
 
-<!-- floating lights -->
 <script>
 for(let i=0;i<25;i++){
   const l=document.createElement("div");
@@ -128,28 +183,66 @@ for(let i=0;i<25;i++){
 
 <div class="container">
 
-  <div class="cake" onclick="revealWish()">
-    <img src="images/photo42.png" class="cake-img" alt="Birthday Cake">
+  <div class="cake">
+
+```
+<!-- candles ABOVE TOP LAYER -->
+<div class="candles" id="candles">
+  <div class="candle"></div>
+  <div class="candle"></div>
+  <div class="candle"></div>
+</div>
+
+<!-- layers -->
+<div class="layer top"></div>
+<div class="layer middle"></div>
+<div class="layer bottom"></div>
+```
+
   </div>
 
-  <div class="note">Tap the cake… and make a silent wish 🤍</div>
+  <!-- blow -->
 
-  <div class="quote" id="quote">
-    Some moments don’t need candles,  
-    just love, prayers, and a pure heart ✨
+<button onclick="blowCandles()">💨 Blow</button>
+
+  <!-- input -->
+
+  <div id="wishBox">
+    <input type="text" id="wishInput" placeholder="Type your wish...">
+    <br><br>
+    <button onclick="makeWish()">Done✨</button>
   </div>
 
-  <div class="buttons" id="buttons">
+  <!-- navigation -->
+
+  <div class="buttons">
     <button onclick="goBack()">⬅ Back</button>
-    <button onclick="goGift()">🎁 Continue</button>
+    <button onclick="goGift()">Next ➡</button>
   </div>
 
 </div>
 
+<!-- popup -->
+
+<div id="popup">
+  Your wish has come true ✨
+</div>
+
 <script>
-function revealWish(){
-  document.getElementById("quote").style.display="block";
-  document.getElementById("buttons").style.display="flex";
+function blowCandles(){
+  document.querySelectorAll(".candle").forEach(c=>{
+    c.classList.add("off");
+  });
+  document.getElementById("wishBox").style.display="block";
+}
+
+function makeWish(){
+  const wish=document.getElementById("wishInput").value;
+
+  if(wish.trim()!==""){
+    document.getElementById("wishBox").innerHTML =
+      "<p style='font-size:18px;color:#fde68a;'>✨ Your wish has come true ✨</p>";
+  }
 }
 
 function goGift(){location.href="gift.html";}

@@ -106,35 +106,23 @@ span.p{
   opacity:.8;
 }
 
-/* 3D heart */
-.heart-wrap{
+.next-btn{
   position:fixed;
   right:24px;
   bottom:24px;
+  padding:10px 26px;
+  border-radius:26px;
+  border:1px solid rgba(255,255,255,.3);
+  background:rgba(255,255,255,.15);
+  color:#fff;
+  font-weight:500;
   cursor:pointer;
+  backdrop-filter:blur(6px);
 }
 
-.heart{
-  width:38px;
-  height:38px;
-  background:linear-gradient(145deg,#ff4d6d,#c9184a);
-  transform:rotate(-45deg);
-  position:relative;
-  box-shadow:0 14px 35px rgba(255,77,109,.65);
-  animation:beat 1.8s infinite;
+.next-btn:hover{
+  background:rgba(255,255,255,.25);
 }
-
-.heart:before,
-.heart:after{
-  content:"";
-  width:38px;
-  height:38px;
-  background:linear-gradient(145deg,#ff758f,#c9184a);
-  border-radius:50%;
-  position:absolute;
-}
-.heart:before{top:-19px;left:0}
-.heart:after{left:19px;top:0}
 
 @keyframes beat{
   0%{transform:rotate(-45deg) scale(1)}
@@ -185,9 +173,7 @@ span.p{
   <div class="tap-text">Tap gently 💌</div>
 </div>
 
-<div class="heart-wrap" onclick="goCake()">
-  <div class="heart"></div>
-</div>
+<button class="next-btn" onclick="goCake()">Next ➡</button>
 
 <button class="back-btn" onclick="goIndex()">⬅ Back</button>
 
